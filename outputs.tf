@@ -1,10 +1,10 @@
 output "cluster_arn" {
-  value       = local.cluster_arn
+  value       = aws_ecs_cluster.namespace.arn
   description = "string ||| AWS Arn for the Fargate cluster."
 }
 
 output "cluster_name" {
-  value       = local.cluster_name
+  value       = aws_ecs_cluster.namespace.name
   description = "string ||| Name of the Fargate cluster."
 }
 

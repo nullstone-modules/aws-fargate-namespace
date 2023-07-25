@@ -1,15 +1,15 @@
 output "cluster_arn" {
-  value       = aws_ecs_cluster.namespace.arn
+  value       = local.cluster_arn
   description = "string ||| AWS Arn for the Fargate cluster."
 }
 
 output "cluster_name" {
-  value       = aws_ecs_cluster.namespace.name
+  value       = local.cluster_name
   description = "string ||| Name of the Fargate cluster."
 }
 
 output "deployers_name" {
-  value       = aws_iam_group.deployers.name
+  value       = local.deployers_name
   description = "string ||| Name of the deployers IAM Group that is allowed to deploy to the Fargate cluster."
 }
 

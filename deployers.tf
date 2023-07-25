@@ -1,14 +1,20 @@
 resource "aws_iam_group" "deployers" {
+  count = local.is_preview_env ? 1 : 0
+
   name = "deployers-${local.resource_name}"
 }
 
 resource "aws_iam_group_policy" "deployers" {
+  count = local.is_preview_env ? 1 : 0
+
   name   = "deployers-${local.resource_name}"
-  group  = aws_iam_group.deployers.id
-  policy = data.aws_iam_policy_document.deployer.json
+  group  = aws_iam_group.deployers[count.index].id
+  policy = data.aws_iam_policy_document.deployer[count.index].json
 }
 
 data "aws_iam_policy_document" "deployer" {
+  count = local.is_preview_env ? 1 : 0
+
   statement {
     sid    = "AllowEditTaskDefinitions"
     effect = "Allow"
@@ -50,7 +56,7 @@ data "aws_iam_policy_document" "deployer" {
     condition {
       test     = "ArnEquals"
       variable = "ecs:cluster"
-      values   = [aws_ecs_cluster.namespace.arn]
+      values   = [aws_ecs_cluster.namespace[count.index].arn]
     }
   }
 }

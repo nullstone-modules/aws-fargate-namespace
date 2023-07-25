@@ -4,8 +4,8 @@ data "ns_connection" "cluster" {
 }
 
 locals {
-  cluster_arn    = local.is_preview_env ? aws_ecs_cluster[0].namespace.arn : data.ns_connection.cluster.outputs.cluster_arn
-  cluster_name   = local.is_preview_env ? aws_ecs_cluster[0].namespace.name : data.ns_connection.cluster.outputs.cluster_name
+  cluster_arn    = local.is_preview_env ? aws_ecs_cluster.namespace[0].arn : data.ns_connection.cluster.outputs.cluster_arn
+  cluster_name   = local.is_preview_env ? aws_ecs_cluster.namespace[0].name : data.ns_connection.cluster.outputs.cluster_name
   deployers_name = local.is_preview_env ? aws_iam_group.deployers[0].name : data.ns_connection.cluster.outputs.deployers_name
 }
 

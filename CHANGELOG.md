@@ -1,3 +1,6 @@
+# 0.1.3 (Feb 10, 2026)
+* Fixed syntax of deployers policy.
+
 # 0.1.2 (Feb 10, 2026)
 * Added deployers IAM policy.
 

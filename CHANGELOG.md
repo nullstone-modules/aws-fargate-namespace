@@ -1,3 +1,6 @@
+# 0.1.2 (Feb 10, 2026)
+* Added deployers IAM policy.
+
 # 0.1.1 (Feb 21, 2024)
 * Added permission for deployers to `ListTaskDefinitions`.
 

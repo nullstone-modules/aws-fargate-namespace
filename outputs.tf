@@ -13,6 +13,16 @@ output "deployers_name" {
   description = "string ||| Name of the deployers IAM Group that is allowed to deploy to the Fargate cluster."
 }
 
+output "deployers_policy_name" {
+  value       = local.deployers_policy_name
+  description = "string ||| Name of the deployers IAM Policy that is allowed to deploy to the Fargate cluster."
+}
+
+output "deployers_policy_arn" {
+  value       = local.deployers_policy_arn
+  description = "string ||| ARN of the deployers IAM Policy that is allowed to deploy to the Fargate cluster."
+}
+
 output "namespace" {
   value       = local.namespace
   description = "string ||| The service discovery namespace"
